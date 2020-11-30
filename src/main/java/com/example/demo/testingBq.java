@@ -49,8 +49,14 @@ public class testingBq {
 	      TableResult result = bigquery.query(queryConfig);
 
 	      // Print the results.
-	      result.iterateAll().forEach(rows -> rows.forEach(row -> System.out.println(row.getValue())));
+	      result.iterateAll().forEach(rows -> 
+	      {
+	       System.out.println(rows.get("unique_key").getValue());
+	       System.out.println(rows.get("date").getValue());
+	       System.out.println(rows.get("description").getValue());
+	       });
 
+	    		  
 	      System.out.println("Query ran successfully");
 	    } catch (BigQueryException | InterruptedException e) {
 	      System.out.println("Query did not run \n" + e.toString());
