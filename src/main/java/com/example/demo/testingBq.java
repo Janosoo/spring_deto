@@ -1,5 +1,6 @@
 package com.example.demo;
 
+import com.example.demo.ColdFile;
 import com.google.auth.oauth2.GoogleCredentials;
 import com.google.auth.oauth2.ServiceAccountCredentials;
 import com.google.cloud.bigquery.BigQuery;
@@ -47,13 +48,20 @@ public class testingBq {
 
 	      // Execute the query.
 	      TableResult result = bigquery.query(queryConfig);
+	      
+	      
 
 	      // Print the results.
 	      result.iterateAll().forEach(rows -> 
 	      {
 	       System.out.println(rows.get("unique_key").getValue());
 	       System.out.println(rows.get("date").getValue());
-	       System.out.println(rows.get("description").getValue());
+	       System.out.println(rows.get("description").getValue())
+	       ColdFile coldfile = new ColdFile(
+	    		   rows.get("unique_key").getValue(),
+	    		   rows.get("date").getValue(), 
+	    		   rows.get("description").getValue();
+	       
 	       });
 
 	    		  

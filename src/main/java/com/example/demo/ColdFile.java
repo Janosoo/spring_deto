@@ -10,11 +10,11 @@ public class ColdFile {
 	
 	private String description;
 	
-	public ColdFile(String uniqueKey, Timestamp date, String description) {
+	public ColdFile(Object object, Object object2, Object object3) {
 		super();
-		this.uniqueKey = uniqueKey;
-		this.date = date;
-		this.description = description;
+		this.uniqueKey = object;
+		this.date = object2;
+		this.description = object3;
 	}
 
 	public String getUniqueKey() {
